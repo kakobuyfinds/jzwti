@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<title>JoyaGoo Spreadsheet Guide: Finds, Sizing &amp; QC Checks</title>
+<meta name="description" content="Use a JoyaGoo spreadsheet with a clearer plan: browse clothing categories, compare measurements, understand QC photos and prepare a practical shopping shortlist.">
+<meta name="theme-color" content="#243e38">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="JoyaGoo Spreadsheet — The Considered Finds Guide">
+<meta property="og:description" content="Start with a category. Check the details. Build a smaller, better-informed shortlist.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&amp;fit=crop&amp;w=1200&amp;q=80">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://images.unsplash.com">
+<!-- index.html | Set a self-referencing canonical after the real deployment URL is known. -->
+<!-- Search research: ten distinct results reviewed through available web search, not a verified Google first-page ranking. Domains: sheetjoyagoo.com; joyagoospreadsheet.com; rep.tools; joyagoo-spreadsheets.org; joyagootop.com; joyagoospreadsheet.gg; joyagoo.io; joyagoolist.com; ssfinds.com; joyagoo.today. Direct retrieval failed for joyagoo.io and joyagoolist.com; search excerpts were available. Recurring topics: categories, product links, sizing, QC, beginner workflow and shipping. No catalogue counts, promotions or ratings are reproduced. -->
+<!-- Secondary keyword themes: JoyaGoo finds; JoyaGoo QC guide; JoyaGoo size guide; JoyaGoo shopping checklist. Long-tail intents are addressed in the visible guides rather than a keyword block. -->
+<style>
+:root {
+  --paper:#f5f2e9;
+  --white:#fffef9;
+  --ink:#20352f;
+  --muted:#53645d;
+  --line:#d7dbce;
+  --accent:#d9ee8b;
+  --dark:#243e38;
+  --radius:5px;
+}
+* { box-sizing:border-box }
+html { color-scheme:light }
+body {
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font:16px/1.65 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+a { color:inherit; text-underline-offset:4px }
+a:hover { text-decoration-thickness:2px }
+a:focus-visible,summary:focus-visible {
+  outline:3px solid #9c5319;
+  outline-offset:5px;
+}
+img {
+  display:block;
+  width:100%;
+  height:auto;
+  background:#e7e5dc;
+}
+h1,h2,h3,p,figure { margin:0 }
+h1,h2,h3 { line-height:1.13; text-wrap:balance }
+h1 {
+  font-size:clamp(2.8rem,6vw,5.4rem);
+  font-weight:700;
+  letter-spacing:-.065em;
+}
+h2 {
+  font-size:clamp(1.8rem,3.5vw,2.7rem);
+  letter-spacing:-.04em;
+}
+h3 { font-size:1.2rem; letter-spacing:-.02em }
+p { margin-top:1rem }
+.wrap { width:min(1180px,calc(100% - 40px)); margin:auto }
+.top { border-bottom:1px solid var(--line) }
+.bar {
+  min-height:78px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+}
+.brand {
+  font-size:1.15rem;
+  font-weight:800;
+  letter-spacing:-.04em;
+  text-decoration:none;
+}
+.brand span { font-weight:400 }
+.bar p { margin:0; color:var(--muted); font-size:.8rem }
+.eyebrow {
+  font-size:.73rem;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  font-weight:750;
+}
+.category-section { padding:28px 0 30px }
+.category-title {
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:12px;
+  margin-bottom:15px;
+}
+.category-title h2 { font-size:1rem; letter-spacing:0 }
+.category-title span { font-size:.78rem; color:var(--muted) }
+.categories {
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:8px;
+}
+.categories a {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+  min-height:58px;
+  padding:10px 13px;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:var(--white);
+  font-size:.86rem;
+  font-weight:650;
+  text-decoration:none;
+}
+.categories a:hover { background:var(--accent) }
+.categories b { font-weight:400 }
+.hero {
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  background:var(--dark);
+  color:var(--white);
+  border-radius:var(--radius);
+  overflow:hidden;
+}
+.hero-copy { padding:clamp(28px,4.5vw,60px) }
+.hero .eyebrow { color:var(--accent); margin-bottom:22px }
+.hero p { max-width:46ch; color:#dee5d9 }
+.hero figure {
+  display:flex;
+  flex-direction:column;
+  background:#b62627;
+}
+.hero img { height:100%; min-height:340px; object-fit:cover }
+.hero figcaption {
+  padding:10px 18px;
+  background:#20352f;
+  color:#e0e6db;
+  font-size:.75rem;
+}
+.button {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:24px;
+  min-height:48px;
+  margin-top:25px;
+  padding:10px 20px;
+  background:var(--accent);
+  color:var(--ink);
+  border-radius:var(--radius);
+  font-weight:750;
+  text-decoration:none;
+}
+.note { font-size:.8rem; line-height:1.5 }
+.section { padding:62px 0; border-bottom:1px solid var(--line) }
+.section-head {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:35px;
+  align-items:end;
+  margin-bottom:28px;
+}
+.section-head p { margin:0; color:var(--muted) }
+.answer {
+  display:grid;
+  grid-template-columns:.7fr 1.3fr;
+  gap:50px;
+}
+.answer p:first-child { margin-top:0 }
+.answer strong { font-weight:750 }
+.steps {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:25px;
+  margin-top:32px;
+}
+.step { border-top:2px solid var(--ink); padding-top:18px }
+.number {
+  display:block;
+  margin-bottom:18px;
+  color:var(--muted);
+  font-size:.8rem;
+}
+.step p { color:var(--muted); font-size:.94rem }
+.editorial {
+  display:grid;
+  grid-template-columns:.8fr 1.2fr;
+  gap:45px;
+  align-items:start;
+}
+.editorial figure { position:sticky; top:24px }
+.editorial img {
+  aspect-ratio:4/5;
+  object-fit:cover;
+  border-radius:var(--radius);
+}
+figcaption { font-size:.77rem; color:var(--muted); padding-top:10px }
+.articles { display:grid; gap:26px; margin-top:28px }
+.articles article {
+  padding:0 0 26px;
+  border-bottom:1px solid var(--line);
+}
+.articles article:last-child { padding-bottom:0; border:0 }
+.articles h3 { font-size:1.45rem }
+.articles .eyebrow {
+  display:block;
+  margin-bottom:12px;
+  color:var(--muted);
+}
+.articles p { font-size:.95rem }
+.table-wrap { overflow-x:auto; margin-top:25px }
+table {
+  width:100%;
+  border-collapse:collapse;
+  text-align:left;
+  font-size:.92rem;
+}
+caption { text-align:left; font-weight:700; margin-bottom:12px }
+th,td {
+  padding:16px 14px;
+  border-bottom:1px solid var(--line);
+  vertical-align:top;
+}
+th { background:#e8edde }
+td:first-child { font-weight:650 }
+details { border-bottom:1px solid var(--line); padding:19px 0 }
+summary { cursor:pointer; font-weight:700; line-height:1.5 }
+details p {
+  max-width:80ch;
+  color:var(--muted);
+  margin-bottom:6px;
+}
+.closing {
+  margin:45px 0;
+  padding:32px;
+  background:var(--accent);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:25px;
+  border-radius:var(--radius);
+}
+.closing h2 { font-size:1.7rem }
+.closing .button {
+  margin:0;
+  background:var(--dark);
+  color:white;
+  white-space:nowrap;
+}
+footer { padding:12px 0 35px; color:var(--muted); font-size:.8rem }
+footer p { max-width:100ch }
+.footer-row {
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  flex-wrap:wrap;
+}
+@media(max-width:800px) {
+  .categories { grid-template-columns:repeat(2,1fr) }
+  .hero,.section-head,.answer,.editorial {
+    grid-template-columns:1fr;
+    gap:25px;
+  }
+  .hero figure { max-height:440px }
+  .hero img { min-height:0; aspect-ratio:4/3 }
+  .steps { grid-template-columns:1fr; gap:25px }
+  .editorial figure { position:static; display:none }
+  .section { padding:40px 0 }
+  .closing { align-items:flex-start; flex-direction:column }
+  .bar p { max-width:140px; text-align:right }
+  .answer { gap:20px }
+  .wrap { width:min(1180px,calc(100% - 28px)) }
+}
+@media(prefers-reduced-motion:no-preference) {
+  .categories a { transition:background-color .15s ease }
+}
+@media print {
+  body { background:white }
+  .hero { background:white; color:black }
+  .hero p { color:black }
+  .hero figure,.button,.closing { display:none }
+  .section { padding:24px 0 }
+  details p { display:block }
+  .editorial { display:block }
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"WebPage",
+      "name":"JoyaGoo Spreadsheet — The Considered Finds Guide",
+      "description":"An independent English guide to clothing categories, measurements, QC photos and shopping shortlists.",
+      "inLanguage":"en",
+      "mainEntity":{
+        "@type":"Article",
+        "headline":"A practical JoyaGoo shopping checklist",
+        "inLanguage":"en",
+        "description":"Choose a category, record listing details, compare measurements and review the total cost before ordering."
+      }
+    },
+    {
+      "@type":"FAQPage",
+      "inLanguage":"en",
+      "mainEntity":[
+        {
+          "@type":"Question",
+          "name":"What is a JoyaGoo spreadsheet?",
+          "acceptedAnswer":{
+            "@type":"Answer",
+            "text":"A JoyaGoo spreadsheet is a product-discovery list associated with shopping through JoyaGoo. It may be a shared sheet or a website, with categories, images and source links. A listing in a sheet does not establish stock, quality or authenticity."
+          }
+        },
+        {
+          "@type":"Question",
+          "name":"Where do the links on this page go?",
+          "acceptedAnswer":{
+            "@type":"Answer",
+            "text":"The ten category links open their named categories on hipobuyfind.com. All other navigation links open the Hipobuyfind homepage. This page does not submit orders to JoyaGoo."
+          }
+        },
+        {
+          "@type":"Question",
+          "name":"Are the images on this page QC photos?",
+          "acceptedAnswer":{
+            "@type":"Answer",
+            "text":"No. They are editorial sneaker photographs, not warehouse photos or evidence of an item for sale. Use photos of your actual order to inspect its visible details."
+          }
+        },
+        {
+          "@type":"Question",
+          "name":"How do I choose a clothing or shoe size?",
+          "acceptedAnswer":{
+            "@type":"Answer",
+            "text":"Compare the listing's measurements with clothing that fits you or with your measured foot length. Check the measuring method, units and selected variation; a familiar size label alone is not enough."
+          }
+        },
+        {
+          "@type":"Question",
+          "name":"Does a spreadsheet price include delivery?",
+          "acceptedAnswer":{
+            "@type":"Answer",
+            "text":"Do not assume it does. Verify the live item price, domestic delivery, applicable service charges, international shipping and any destination charges before paying."
+          }
+        },
+        {
+          "@type":"Question",
+          "name":"Is this an official JoyaGoo or brand website?",
+          "acceptedAnswer":{
+            "@type":"Answer",
+            "text":"No. This is an independent educational and navigation page. It is not affiliated with JoyaGoo, Nike, Louis Vuitton, Gucci, Hermès or Dior, and it does not authenticate products."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="canonical" href="https://kakobuyfinds.github.io/jzwti/">
+</head>
+<body>
+<header class="top">
+  <div class="wrap bar">
+    <a class="brand" href="https://www.hipobuyfind.com">THE FINDS <span>NOTEBOOK</span></a>
+    <p>Independent style research<br>Less guesswork. Better checks.</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <nav class="category-section" aria-label="Product categories on Hipobuyfind">
+    <div class="category-title">
+      <h2>Choose your starting point</h2>
+      <span>Categories open on Hipobuyfind ↗</span>
+    </div>
+    <div class="categories">
+      <a href="https://hipobuyfind.com/category-911-Shoes.html">Shoes <b aria-hidden="true">↗</b></a>
+      <a href="https://hipobuyfind.com/category-912-Hoodies%2FSweaters.html">Hoodies/Sweaters <b aria-hidden="true">↗</b></a>
+      <a href="https://hipobuyfind.com/category-913-T-Shirts.html">T-Shirts <b aria-hidden="true">↗</b></a>
+      <a href="https://hipobuyfind.com/category-914-Jackets.html">Jackets <b aria-hidden="true">↗</b></a>
+      <a href="https://hipobuyfind.com/category-915-Pants%2FShorts.html">Pants/Shorts <b aria-hidden="true">↗</b></a>
+      <a href="https://hipobuyfind.com/category-916-Headwear.html">Headwear <b aria-hidden="true">↗</b></a>
+      <a href="https://hipobuyfind.com/category-917-Sets.html">Sets <b aria-hidden="true">↗</b></a>
+      <a href="https://hipobuyfind.com/category-918-underwear%2Funderpants.html">Underwear/underpants <b aria-hidden="true">↗</b></a>
+      <a href="https://hipobuyfind.com/category-919-Jersey.html">Jersey <b aria-hidden="true">↗</b></a>
+      <a href="https://hipobuyfind.com/category-920-Accessories.html">Accessories <b aria-hidden="true">↗</b></a>
+    </div>
+  </nav>
+
+  <section class="hero" aria-labelledby="page-title">
+    <div class="hero-copy">
+      <div class="eyebrow">Field notes / Style &amp; selection</div>
+      <h1 id="page-title">JoyaGoo<br>spreadsheet.<br>A considered approach.</h1>
+      <p>Find the category you need, compare what matters, and save only the pieces you can properly assess. A useful shortlist starts with details, not a crowded cart.</p>
+      <a class="button" href="https://www.hipobuyfind.com">Explore Hipobuyfind <span aria-hidden="true">↗</span></a>
+      <p class="note">This is an independent guide. Browsing links lead to Hipobuyfind, a separate destination; they do not open JoyaGoo checkout.</p>
+    </div>
+    <figure>
+      <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&amp;fit=crop&amp;w=1000&amp;q=80" width="1000" height="1000" alt="Red Nike athletic sneaker photographed against a red background" loading="eager" fetchpriority="high" decoding="async">
+      <figcaption>Material, silhouette, proportion. Editorial inspiration, not a product offer.</figcaption>
+    </figure>
+  </section>
+
+  <section class="section answer" aria-labelledby="definition">
+    <div>
+      <div class="eyebrow">The quick answer</div>
+      <h2 id="definition">What is a JoyaGoo spreadsheet?</h2>
+    </div>
+    <div>
+      <p>A <strong>JoyaGoo spreadsheet</strong> is a product-discovery list associated with shopping through JoyaGoo. It may be a shared sheet or a website, with categories, images and source links. A listing in a sheet does not establish stock, quality or authenticity.</p>
+      <p>Use this page as a reading companion: the category directory opens Hipobuyfind, while the guides below help you evaluate a shortlist wherever you browse. There is no downloadable product database or live inventory on this page.</p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="workflow">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">01 / The shortlist method</div>
+        <h2 id="workflow">A practical JoyaGoo shopping checklist</h2>
+      </div>
+      <p>For JoyaGoo finds, a repeatable process is more useful than an unverified “best” label. Start with one category and a clear reason to buy.</p>
+    </div>
+    <div class="steps">
+      <article class="step">
+        <span class="number">01 — DISCOVER</span>
+        <h3>Keep the source</h3>
+        <p>For a JoyaGoo spreadsheet for beginners, record the original product link, item ID, seller, colour and date checked. A JoyaGoo product link checklist should make it possible to find the same variation again.</p>
+      </article>
+      <article class="step">
+        <span class="number">02 — COMPARE</span>
+        <h3>Measure before choosing</h3>
+        <p>Build a JoyaGoo clothing size comparison around actual dimensions. For a JoyaGoo sneaker size guide, begin with foot length and the listing’s measurement method rather than assuming every size label fits alike.</p>
+      </article>
+      <article class="step">
+        <span class="number">03 — VERIFY</span>
+        <h3>Check the whole decision</h3>
+        <p>A JoyaGoo shopping budget checklist should separate item cost from delivery and other charges. Confirm availability, return conditions and the total shown by the service you actually use before paying.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section editorial" aria-labelledby="guides">
+    <figure>
+      <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&amp;fit=crop&amp;w=760&amp;q=75" width="760" height="950" alt="Tan Nike sneakers with contrasting white swooshes and textured soles" loading="lazy" decoding="async">
+      <figcaption>Look beyond the logo: compare panel shapes, fastening details and construction.</figcaption>
+    </figure>
+    <div>
+      <div class="eyebrow">02 / The reading room</div>
+      <h2 id="guides">Short guides for better choices</h2>
+
+      <div class="articles">
+        <article>
+          <span class="eyebrow">Fit notes / 3 useful comparisons</span>
+          <h3>Read the garment, not just the size tag</h3>
+          <p>A JoyaGoo hoodie measurement guide starts with chest width, body length and shoulder placement. Compare a flat garment with a similar piece you own, using the same measuring points. A JoyaGoo oversized T-shirt fit check also needs sleeve length: a wider chest alone does not explain the silhouette.</p>
+          <p>For a JoyaGoo jacket layering guide, allow room for the clothing you plan to wear underneath. A JoyaGoo pants inseam comparison should include rise and waist measurements; inseam alone cannot tell you where the waistband will sit.</p>
+        </article>
+
+        <article>
+          <span class="eyebrow">Photo notes / Visible evidence</span>
+          <h3>A JoyaGoo QC guide: ask specific questions</h3>
+          <p>For a JoyaGoo QC photo checklist, start with the selected size, colour and item identity. Then examine visible seams, surface marks and whether both shoes appear consistent. A JoyaGoo sneaker sole inspection benefits from clear side and underside views; a single angled photograph can hide important details.</p>
+          <p>In a JoyaGoo seller photos vs QC photos comparison, remember that styled listing images describe a product, while order-specific photos show the item received. Neither proves comfort, long-term durability or authenticity. A JoyaGoo detail photo request should name the uncertainty: for example, a ruler beside the insole or a close view of a fastening.</p>
+        </article>
+
+        <article>
+          <span class="eyebrow">Small details / Daily wear</span>
+          <h3>Accessories need measurements too</h3>
+          <p>A JoyaGoo headwear sizing checklist should include head circumference and whether the closure is adjustable. For a JoyaGoo jewellery material check, look for a clear material description and any available documentation; colour and shine are not proof of composition.</p>
+          <p>A JoyaGoo matching set size check should consider the top and bottoms separately. A JoyaGoo jersey fit comparison should account for chest width and length. For a JoyaGoo underwear shopping checklist, inspect material information and hygiene-related return conditions before selecting an option.</p>
+        </article>
+
+        <article>
+          <span class="eyebrow">Planning notes / Beyond the listing</span>
+          <h3>Turn saved links into a usable plan</h3>
+          <p>A JoyaGoo broken product link check begins with the original marketplace ID. Confirm the listing still exists and matches the intended variation; do not assume a similar thumbnail is the same product. For a JoyaGoo spreadsheet stock check, treat the live listing as the place to recheck availability.</p>
+          <p>A JoyaGoo shipping cost planning sheet should record destination, packed dimensions, weight and the terms of any estimate. A JoyaGoo parcel weight estimate is a planning input, not a final quote. Whether you are researching JoyaGoo shopping from the USA, the UK or Europe, check the destination-specific information shown by the service you use.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="comparison">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">03 / A clearer comparison</div>
+        <h2 id="comparison">What to record before you decide</h2>
+      </div>
+      <p>Keep unknowns visible. A blank measurement or missing photo is a reason to ask a question, not an invitation to guess.</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <caption>A compact product research template</caption>
+        <thead>
+          <tr>
+            <th scope="col">Area</th>
+            <th scope="col">Record</th>
+            <th scope="col">Resolve before ordering</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Shoes</td>
+            <td>Foot length, selected size, colour and source ID</td>
+            <td>How is the insole measured, and does the selected option match?</td>
+          </tr>
+          <tr>
+            <td>Clothing</td>
+            <td>Chest, length, waist or inseam as appropriate</td>
+            <td>Are units and flat-lay measuring points clear?</td>
+          </tr>
+          <tr>
+            <td>Accessories</td>
+            <td>Dimensions, closure type and stated materials</td>
+            <td>Is the description specific enough for your intended use?</td>
+          </tr>
+          <tr>
+            <td>Photos</td>
+            <td>Image source and the variation pictured</td>
+            <td>Is this a listing image, an example from another order or your actual item?</td>
+          </tr>
+          <tr>
+            <td>Total cost</td>
+            <td>Item price, delivery, service charges and estimate date</td>
+            <td>What is included, and what is still payable later?</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="faq">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">04 / Direct answers</div>
+        <h2 id="faq">Questions before browsing</h2>
+      </div>
+      <p>Clear expectations make a product directory easier to use.</p>
+    </div>
+
+    <details open>
+      <summary>What is a JoyaGoo spreadsheet?</summary>
+      <p>A JoyaGoo spreadsheet is a product-discovery list associated with shopping through JoyaGoo. It may be a shared sheet or a website, with categories, images and source links. A listing in a sheet does not establish stock, quality or authenticity.</p>
+    </details>
+    <details>
+      <summary>Where do the links on this page go?</summary>
+      <p>The ten category links open their named categories on hipobuyfind.com. All other navigation links open the Hipobuyfind homepage. This page does not submit orders to JoyaGoo.</p>
+    </details>
+    <details>
+      <summary>Are the images on this page QC photos?</summary>
+      <p>No. They are editorial sneaker photographs, not warehouse photos or evidence of an item for sale. Use photos of your actual order to inspect its visible details.</p>
+    </details>
+    <details>
+      <summary>How do I choose a clothing or shoe size?</summary>
+      <p>Compare the listing's measurements with clothing that fits you or with your measured foot length. Check the measuring method, units and selected variation; a familiar size label alone is not enough.</p>
+    </details>
+    <details>
+      <summary>Does a spreadsheet price include delivery?</summary>
+      <p>Do not assume it does. Verify the live item price, domestic delivery, applicable service charges, international shipping and any destination charges before paying.</p>
+    </details>
+    <details>
+      <summary>Is this an official JoyaGoo or brand website?</summary>
+      <p>No. This is an independent educational and navigation page. It is not affiliated with JoyaGoo, Nike, Louis Vuitton, Gucci, Hermès or Dior, and it does not authenticate products.</p>
+    </details>
+  </section>
+
+  <aside class="closing">
+    <div>
+      <div class="eyebrow">Make your next shortlist count</div>
+      <h2>Start with what you actually need.</h2>
+      <p>Browse a category, keep the source, and check the details.</p>
+    </div>
+    <a class="button" href="https://www.hipobuyfind.com">Visit Hipobuyfind <span aria-hidden="true">↗</span></a>
+  </aside>
+</main>
+
+<footer class="wrap">
+  <div class="footer-row">
+    <span>THE FINDS NOTEBOOK / English edition</span>
+    <a href="https://www.hipobuyfind.com">Hipobuyfind homepage ↗</a>
+  </div>
+  <p>Independent shopping education. Brand names identify discussion subjects only. Editorial photographs are illustrative and are not catalogue listings, authentication evidence or statements of current availability. This page does not process payments, manage orders or provide live shipping quotes.</p>
+</footer>
+</body>
+</html>
